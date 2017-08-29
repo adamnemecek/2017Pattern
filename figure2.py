@@ -12,7 +12,8 @@ f[6] = open("MeredithTLPMIREX2016/mazurka24-4.tlf1",'r')
 f[7] = open("MeredithTLRMIREX2016/mazurka24-4.tlf1",'r')
 f[8] = open("VM/VM1/output/mazurka24-4.txt",'r')
 f[9] = open("VM/VM2/output/mazurka24-4input.txt",'r')
-f[10] = open("2016IR/chopin-mono.txt",'r')
+f[10] = open("SIARCT-CFP/examples/exampleData/patterns_mazurka24-4.txt")
+# f[10] = open("2016IR/chopin-mono.txt",'r')
 
 d={}
 for i in range(startindex,endindex):
