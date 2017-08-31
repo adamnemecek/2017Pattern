@@ -1,0 +1,11 @@
+0	Heer_Halewijn_2+NLB072378_01
+21	Heer_Halewijn_2+NLB074426_02
+44	Heer_Halewijn_2+NLB073754_01
+68	Heer_Halewijn_2+NLB074156_03
+189/2	Heer_Halewijn_2+NLB072257_01
+237/2	Heer_Halewijn_2+NLB073750_01
+285/2	Heer_Halewijn_2+NLB074613_02
+333/2	Heer_Halewijn_2+NLB072255_01
+381/2	Heer_Halewijn_2+NLB073994_01
+429/2	Heer_Halewijn_2+NLB072254_01
+237	Heer_Halewijn_2+NLB074261_01
