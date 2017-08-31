@@ -43,7 +43,16 @@ for root, dirs, files in os.walk(path):
             for line in ToBeCut:
                 if "," in line:
                     pairs.append([float(i.replace(',', '.')) for i in line.split(', ')])
-            
             print(pairs)
+
+            # value comparison
+            index = 0
+            for pair in pairs:
+                print(pair[0])
+                print(CurrentCue[index])
+                index += 1
+                # if pair[0] < CurrentCue[index]:
+                #     print(True)
+            
 
             
