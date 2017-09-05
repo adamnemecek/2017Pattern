@@ -1,0 +1,17 @@
+0	Soldaat_kwam_uit_de_oorlog+NLB074468_01
+30	Soldaat_kwam_uit_de_oorlog+NLB072285_01
+52	Soldaat_kwam_uit_de_oorlog+NLB073393_01
+148	Soldaat_kwam_uit_de_oorlog+NLB072286_01
+178	Soldaat_kwam_uit_de_oorlog+NLB074157_01
+453/2	Soldaat_kwam_uit_de_oorlog+NLB074234_01
+517/2	Soldaat_kwam_uit_de_oorlog+NLB072289_01
+589/2	Soldaat_kwam_uit_de_oorlog+NLB072288_01
+651/2	Soldaat_kwam_uit_de_oorlog+NLB072284_01
+711/2	Soldaat_kwam_uit_de_oorlog+NLB073992_01
+807/2	Soldaat_kwam_uit_de_oorlog+NLB072103_01
+879/2	Soldaat_kwam_uit_de_oorlog+NLB072283_01
+1871/4	Soldaat_kwam_uit_de_oorlog+NLB072287_01
+2003/4	Soldaat_kwam_uit_de_oorlog+NLB073311_01
+2195/4	Soldaat_kwam_uit_de_oorlog+NLB073888_01
+2327/4	Soldaat_kwam_uit_de_oorlog+NLB074954_01
+2519/4	Soldaat_kwam_uit_de_oorlog+NLB074161_01

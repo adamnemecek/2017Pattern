@@ -1,0 +1,9 @@
+0	Een_lindeboom_stond_in_het_dal_1+NLB074754_01
+24	Een_lindeboom_stond_in_het_dal_1+NLB070144_01
+46	Een_lindeboom_stond_in_het_dal_1+NLB071958_01
+70	Een_lindeboom_stond_in_het_dal_1+NLB073866_01
+115	Een_lindeboom_stond_in_het_dal_1+NLB070089_01
+138	Een_lindeboom_stond_in_het_dal_1+NLB070740_01
+162	Een_lindeboom_stond_in_het_dal_1+NLB073804_02
+187	Een_lindeboom_stond_in_het_dal_1+NLB141648_01
+211	Een_lindeboom_stond_in_het_dal_1+NLB070141_01

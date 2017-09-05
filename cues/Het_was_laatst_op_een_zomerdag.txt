@@ -1,0 +1,17 @@
+0	Het_was_laatst_op_een_zomerdag+NLB074166_01
+24	Het_was_laatst_op_een_zomerdag+NLB072664_01
+72	Het_was_laatst_op_een_zomerdag+NLB074956_01
+96	Het_was_laatst_op_een_zomerdag+NLB074104_01
+120	Het_was_laatst_op_een_zomerdag+NLB072482_01
+165	Het_was_laatst_op_een_zomerdag+NLB074342_01
+189	Het_was_laatst_op_een_zomerdag+NLB072505_01
+234	Het_was_laatst_op_een_zomerdag+NLB075532_01
+258	Het_was_laatst_op_een_zomerdag+NLB075074_01
+565/2	Het_was_laatst_op_een_zomerdag+NLB073777_01
+613/2	Het_was_laatst_op_een_zomerdag+NLB075616_01
+661/2	Het_was_laatst_op_een_zomerdag+NLB073946_01
+709/2	Het_was_laatst_op_een_zomerdag+NLB074938_01
+763/2	Het_was_laatst_op_een_zomerdag+NLB072754_01
+809/2	Het_was_laatst_op_een_zomerdag+NLB073516_01
+857/2	Het_was_laatst_op_een_zomerdag+NLB075065_01
+905/2	Het_was_laatst_op_een_zomerdag+NLB072567_01
