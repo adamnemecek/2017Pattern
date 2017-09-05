@@ -4,17 +4,18 @@ import fnmatch
 import re
 import matplotlib.pyplot as plt
 import numpy
-
 from operator import itemgetter
-
 import random
 import numpy as np
+from fractions import Fraction
+
 
 path="C:/Users/admin_local/Dropbox/2017Pattern/MeredithTLF1MIREX2016/"
 pathout = "C:/Users/admin_local/Dropbox/2017Pattern/MeredithTLF1MIREX2016/cut"
 cuepath = "C:/Users/admin_local/Dropbox/2017Pattern/cues"
 
 for root, dirs, files in os.walk(path):
+    # files[0:4] for debugging purpose (only the set of the first song)
     for CurrentFileName in files[0:4]:
         address= os.path.join(root, CurrentFileName)
         if fnmatch.fnmatch(CurrentFileName, "*.tlr"):
@@ -37,7 +38,7 @@ for root, dirs, files in os.walk(path):
             with open(CurrentCueFileAddress[:-4], 'r') as CurrentCueFile:
                 CurrentCue = CurrentCueFile.readlines()
             print(CurrentCue)
-            
+
             # get the actual pattern data from the ToBeCut file
             pairs=[]
             for line in ToBeCut:
@@ -46,13 +47,18 @@ for root, dirs, files in os.walk(path):
             print(pairs)
 
             # value comparison
-            index = 0
-            for pair in pairs:
-                print(pair[0])
-                print(CurrentCue[index])
-                index += 1
+            # for pair in pairs:
+            #     print(pair[0])
+
+            # extracting the cues
+            for CRaw in CurrentCue:
+                Cue=CRaw.split('\t')[0]
+                Filename = CRaw.split('\t')[1]
+                try:
+                    Cue=float(Cue)
+                except:
+                    Cue=float(Fraction(Cue))
+
+
                 # if pair[0] < CurrentCue[index]:
                 #     print(True)
-            
-
-            
