@@ -46,18 +46,47 @@ for root, dirs, files in os.walk(path):
                     pairs.append([float(i.replace(',', '.')) for i in line.split(', ')])
             print(pairs)
 
-            # value comparison
-            # for pair in pairs:
-            #     print(pair[0])
-
+            CueT_1 = 0
             # extracting the cues
-            for CRaw in CurrentCue:
-                Cue=CRaw.split('\t')[0]
+            for i, CRaw in enumerate(CurrentCue):
+                print('--------------------------------')
+                if i == 0:
+                    continue
+                CueI=CRaw.split('\t')[0]
                 Filename = CRaw.split('\t')[1]
+                if i == 1:
+                    CueT_1 = 0
+                else:
+                    CueT_1 = CueT
+
                 try:
-                    Cue=float(Cue)
+                    CueT=float(CueI)
                 except:
-                    Cue=float(Fraction(Cue))
+                    CueT=float(Fraction(CueI))
+
+                # value comparison
+                flag = True
+                for pair in pairs:
+                    if pair[0] >= CueT and flag:
+                        textfile=open("{0}.txt".format(Filename[0:-4]),"w")
+                        flag = False
+                        textfile.write(str(pair[0]))
+                    else:
+                        print("text")
+                        print(pair[0])
+                        print(CueT)
+                        print(CueT_1)
+
+                        if pair[0] >= CueT and pair[0] <= CueT_1:
+                            print(CueT)
+                            print(CueT_1)
+                            textfile.write(str(pair[0]))
+                        else:
+                            break
+                            # print(pair[0])
+                            # print(CueT)
+                            # print(CueT_1)
+                            # print(Filename[0:-5])
 
 
                 # if pair[0] < CurrentCue[index]:
