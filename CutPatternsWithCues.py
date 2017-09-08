@@ -52,13 +52,17 @@ for root, dirs, files in os.walk(path):
                 print('--------------------------------')
                 if i == 0:
                     continue
+                # I stands for intermediate
                 CueI=CRaw.split('\t')[0]
                 Filename = CRaw.split('\t')[1]
+
+                # T_1 is the last Cue
                 if i == 1:
                     CueT_1 = 0
                 else:
                     CueT_1 = CueT
 
+                # T is the current Cue
                 try:
                     CueT=float(CueI)
                 except:
