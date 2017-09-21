@@ -1,10 +1,12 @@
 import os
 import fnmatch
+from fractions import Fraction
+import matplotlib.pyplot as plt
 
 PathCue = "C:/Users/admin_local/Dropbox/2017Pattern/cues/Daar_ging_een_heer_1.txt"
 CueFile = open(PathCue,'r')
 Cues = []
-for i, CRaw in enumerate(CurrentCue):
+for i, CRaw in enumerate(CueFile):
     CueI=CRaw.split('\t')[0]
     Filename = CRaw.split('\t')[1]
 
@@ -25,7 +27,7 @@ PathAnno = "C:/Users/admin_local/Desktop/filesboot/nlb/AnnotatedMotifs/discovery
 singleFpath =  "C:/Users/admin_local/Desktop/filesboot/nlb/AnnotatedMotifs/discovery/Daar_ging_een_heer_1+NLB072587_01.txt"
 
 # Plot discovered patterns in concatenate version
-path="C:/Users/admin_local/Dropbox/2017Pattern/MeredithTLF1MIREX2016/Daar_ging_een_heer_1.txt.tlf1"
+path="C:/Users/admin_local/Dropbox/2017Pattern/MeredithTLF1MIREX2016/Daar_ging_een_heer_1.txt.tlp"
 
 def outputtimes(text):
     pitches=[]
@@ -114,7 +116,7 @@ import scipy.stats as ss
 
 
 plt.figure()
-height=50
+height=5
 for patterns in startendpat:
     # c=numpy.random.rand(3,1)
     height = height + 10
@@ -129,6 +131,98 @@ plt.xlabel('Time')
 # plt.title('The polling curve')
 plt.tight_layout()
 plt.show()
+
+flag = True
+plt.figure()
+height=5
+valid=[]
+for patterns in startendpat:
+    # c=numpy.random.rand(3,1)
+    height = height + 10
+    for occur in patterns:
+        for cue in Cues:
+            # check all the occurrences against the cues, if there's a violation, move to the next occurrences, preserving at the occurrence level, not at the pattern level
+            if (occur[0]<cue and occur[1]>cue):
+                flag = False
+                break
+            else:
+                flag = True
+                # print(occur)
+        if flag:
+            plt.plot((occur[0], occur[1]), (height, height), color = 'red', lw=2, alpha=0.5)
+            valid.append((occur[0], occur[1]))
+plt.plot((0,0), (0,0), color='white', label="GT")
+for cue in Cues:
+    plt.axvline(cue)
+plt.ylabel('Pattern Number & Ground Truth Patterns')
+plt.xlabel('Time')
+# plt.title('The polling curve')
+plt.tight_layout()
+plt.show()
+
+
+flattened_list=[y for x in startendpat for y in x]
+startflat=zip(*flattened_list)[0]
+endflat=zip(*flattened_list)[1]
+totallist=[]
+totallist=totallist+flattened_list
+totalstartlist=[]
+totalstartlist=totalstartlist+list(startflat)
+totalendlist=[]
+totalendlist=totalendlist+list(endflat)
+
+dist={}
+print(totalendlist)
+print(startflat)
+
+print(endflat)
+dist={}
+for time in [x * 1 for x in range(0, int(max(totalendlist)))]:
+    dist[time] = 0
+    for j in range(0,len(startflat)):
+        if time >= startflat[j] and time <= endflat[j]:
+            dist[time] = dist[time] + 1
+
+print(sorted(dist.keys()))
+plt.figure()
+plt.scatter(dist.keys(), dist.values(),s=0.1)
+plt.show()
+
+dist={}
+for time in [x * 0.5 for x in range(0, int(max(totalendlist)*2))]:
+    dist[time] = 0
+    for j in range(0,len(startflat)):
+        if time >= startflat[j] and time <= endflat[j]:
+            dist[time] = dist[time] + 1
+
+print(sorted(dist.keys()))
+plt.figure()
+plt.scatter(dist.keys(), dist.values(),s=0.1)
+plt.show()
+
+for time in [x * 0.25 for x in range(0, int(max(totalendlist)*4))]:
+    dist[time] = 0
+    for j in range(0,len(startflat)):
+        if time >= startflat[j] and time <= endflat[j]:
+            dist[time] = dist[time] + 1
+
+print(sorted(dist.keys()))
+plt.figure()
+plt.scatter(dist.keys(), dist.values(),s=0.1)
+plt.show()
+
+dist={}
+for time in [x * 1 for x in range(0, int(max(totalendlist)))]:
+    dist[time] = 0
+    for j in range(0,len(valid)):
+        if time >= valid[j][0] and time <= valid[j][1]:
+            dist[time] = dist[time] + 1
+
+print(sorted(dist.keys()))
+plt.figure()
+plt.scatter(dist.keys(), dist.values(),s=0.1)
+plt.show()
+
 # for root, dirs, files in os.walk(path):
 #     for CurrentFileName in files[0:4]:
 #         address= os.path.join(root, CurrentFileName)

@@ -35,7 +35,7 @@ def outputtimes(text):
 
         if "o" in line:
             total.append('o')
-            if pairs != []:
+            if pairs != []	:
                 times=zip(*pairs)[0]
                 occurtimes.append(times)
                 pairs=[]

@@ -1,10 +1,12 @@
 import os
 import fnmatch
+from fractions import Fraction
+import matplotlib.pyplot as plt
 
 PathCue = "C:/Users/admin_local/Dropbox/2017Pattern/cues/Daar_ging_een_heer_1.txt"
 CueFile = open(PathCue,'r')
 Cues = []
-for i, CRaw in enumerate(CurrentCue):
+for i, CRaw in enumerate(CueFile):
     CueI=CRaw.split('\t')[0]
     Filename = CRaw.split('\t')[1]
 
@@ -23,10 +25,25 @@ PathAnno = "C:/Users/admin_local/Desktop/filesboot/nlb/AnnotatedMotifs/discovery
 
 # Plot discovered patterns in sparate files
 singleFpath =  "C:/Users/admin_local/Desktop/filesboot/nlb/AnnotatedMotifs/discovery/Daar_ging_een_heer_1+NLB072587_01.txt"
+path =  "C:/Users/admin_local/Desktop/filesboot/nlb/AnnotatedMotifs/discovery/"
+path2 = "C:/Users/admin_local/Desktop/filesboot/nlb/InterOpusDiscoveryClassTask/SIATECAlgorithm/false_true_0_3_0.7_5/discovery/"
 
+oneFamilyPath = []
+twoFamilyPath = []
+for root, dirs, files in os.walk(path):
+    for fileiter in files:
+        if fnmatch.fnmatch(fileiter, "Daar_ging_een_heer_1*"):
+            address= os.path.join(root, fileiter)
+            oneFamilyPath.append(address)
+
+for root, dirs, files in os.walk(path2):
+    for fileiter in files:
+        if fnmatch.fnmatch(fileiter, "Daar_ging_een_heer_1*"):
+            address= os.path.join(root, fileiter)
+            twoFamilyPath.append(address)
+
+familyData=[]
 # Plot discovered patterns in concatenate version
-path="C:/Users/admin_local/Dropbox/2017Pattern/MeredithTLF1MIREX2016/Daar_ging_een_heer_1.txt.tlf1"
-
 def outputtimes(text):
     pitches=[]
     pairs=[]
@@ -106,4 +123,49 @@ def outputtimes(text):
     # print(startendpat[-1])
     return startendpat
 
-startendpat = outputtimes(open(path,'r').readlines())
+familyData2 = []
+for path in oneFamilyPath:
+    startendpat = outputtimes(open(path,'r').readlines())
+    familyData.append(startendpat)
+
+
+for path in twoFamilyPath:
+    startendpat = outputtimes(open(path,'r').readlines())
+    familyData2.append(startendpat)
+
+plt.figure()
+height=5
+starttime=0
+index = 0
+
+for Data in familyData:
+    for patterns in Data:
+        # c=numpy.random.rand(3,1)
+        height = height + 10
+        for occur in patterns:
+            # print(occur)
+            plt.plot((occur[0]+starttime, occur[1]+starttime), (height, height), color = 'red', lw=2, alpha=0.5)
+    cuetime = Cues[index]
+    starttime = cuetime
+    index += 1
+
+index = 0
+for Data in familyData2:
+    for patterns in Data:
+        # c=numpy.random.rand(3,1)
+        height = height + 10
+        for occur in patterns:
+            # print(occur)
+            plt.plot((occur[0]+starttime, occur[1]+starttime), (height, height), color = 'black', lw=2, alpha=0.5)
+    cuetime = Cues[index]
+    starttime = cuetime
+    index += 1
+
+plt.plot((0,0), (0,0), color='white', label="GT")
+for cue in Cues:
+    plt.axvline(cue, lw = 1)
+plt.ylabel('Pattern Number & Ground Truth Patterns')
+plt.xlabel('Time')
+# plt.title('The polling curve')
+plt.tight_layout()
+plt.show()
